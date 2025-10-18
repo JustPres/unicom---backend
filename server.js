@@ -19,7 +19,13 @@ connectDB();
 
 // Simple health route
 app.get("/", (req, res) => {
-    res.json({ message: "Unicom backend is up 🚀" });
+    res.json({
+        message: "Unicom backend is up 🚀",
+        message: "How to navigate through the backend: ",
+        step1: "To register a new user, send a POST request to /api/auth/register with user details in the request body.",
+        step2: "To log in, send a POST request to /api/auth/login with your credentials.",
+        step3: "Once logged in, you can access protected routes by including the JWT token in the Authorization header of your requests."
+    });
 });
 
 
