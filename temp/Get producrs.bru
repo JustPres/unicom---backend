@@ -1,0 +1,23 @@
+meta {
+  name: New HTTP Request
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:5000/api/products
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjY1YmE4NTM1YTU0NDc1Y2FmYzU5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2MjkzMTk1MSwiZXhwIjoxNzYzMDE4MzUxfQ.tOuQwS6Xpb82-nknlpflJ9uS7F_SSDG48mVGY9198Vs
+}
+
+body:json {
+  {
+  "email":"justinne@gmail.com",
+   "password":"nothing" 
+  } 
+}

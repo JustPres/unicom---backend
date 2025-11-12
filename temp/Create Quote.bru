@@ -1,0 +1,44 @@
+meta {
+  name: New HTTP Request
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:5000/api/quotes
+  body: json
+  auth: none
+}
+
+params:query {
+  : 
+}
+
+headers {
+  Content-Type:  application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjY1YmE4NTM1YTU0NDc1Y2FmYzU5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2Mjg2NTAwMSwiZXhwIjoxNzYyOTUxNDAxfQ.njjfsuiMMzJQ0Y5R4QL1f_Vh1YOo9q7pu6TLh4hDxEE
+}
+
+body:json {
+  {
+    "customerName": "John Doe",
+    "customerEmail": "john@example.com",
+    "company": "Acme Corp",
+    "phone": "09171234567",
+    "items": [
+      {
+        "name": "Product A",
+        "quantity": 2,
+        "price": 1500
+      },
+      {
+        "name": "Product B",
+        "quantity": 1,
+        "price": 2000
+      }
+    ],
+    "totalAmount": 5000,
+    "notes": "Please deliver within 7 days."
+  }
+  
+}

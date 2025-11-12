@@ -5,15 +5,18 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import productRoutes from './routes/productRoutes.js';
+import quoteRoutes from "./routes/quoteRoutes.js";
 
 dotenv.config();
 
 const app = express();
 
 // Middlewares
+
 app.use(cors());            // Allow cross-origin requests (configure origin for production)
 app.use(express.json());    // Parse JSON bodies
 app.use("/api/products", productRoutes);
+app.use("/api/quotes", quoteRoutes);
 // Connect to database
 connectDB();
 
@@ -37,3 +40,5 @@ app.use("/api/auth", authRoutes);
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
