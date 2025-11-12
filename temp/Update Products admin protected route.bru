@@ -1,0 +1,28 @@
+meta {
+  name: New HTTP Request
+  type: http
+  seq: 1
+}
+
+put {
+  url: http://localhost:5000/api/products/6914a349494681f5ede88640
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Beaer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjY1YmE4NTM1YTU0NDc1Y2FmYzU5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2Mjk1Njg5OSwiZXhwIjoxNzYzMDQzMjk5fQ.aGrC18LyNS0W9kOK1tW76c7M4xVK0Ycbv3UL_6yvrtQ
+  Content-Type: application/json
+}
+
+body:json {
+  {
+      "name": "IdeaPad Pro 5 (16'', Gen 10) - Updated",
+      "brand": "Lenovo",
+      "description": "Up to Windows 11 Pro Peak performance with AMD Ryzen™ AI 300 Series processors & Copilot+ experiences 16'' Laptop with high-resolution OLED display for awe-inspiring visuals Ideal for learners & educators to empower their creativity. Now with improved battery life!",
+      "category": "Laptops",
+      "price": 69999.99,
+      "stock": 30,
+      "image": "https://p3-ofp.static.pub//fes/cms/2025/03/18/2c0gpgt8idhoaplsf81w37j0y8ctyb588888.png?width=400&height=400"
+  }
+}

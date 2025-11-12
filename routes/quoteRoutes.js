@@ -53,6 +53,6 @@ router.delete("/:id", protect, adminOnly, deleteQuote);
    EXPORT quote as PDF
    - Any logged-in user can export their own quote
 ----------------------------- */
-router.get("/:id/export", protect, generateQuotePDF);
+router.get("/export/:id", protect, generateQuotePDF);
 
 export default router;

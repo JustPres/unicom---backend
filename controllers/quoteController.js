@@ -87,17 +87,23 @@ export const getQuoteById = async (req, res) => {
 ----------------------------- */
 export const updateQuote = async (req, res) => {
     try {
-        // Only admin can update quotes for now
-        if (!req.user.isAdmin) {
+        // Only admin can update quotes
+        if (req.user.role !== 'admin') {
             return res.status(403).json({ message: "Access denied" });
+        }
+
+        // Validate required fields
+        const { customerName, customerEmail, phone, items, totalAmount } = req.body;
+        if (!customerName || !customerEmail || !phone || !items || !totalAmount) {
+            return res.status(400).json({ message: "Missing required fields" });
         }
 
         // Update the quote
         const updatedQuote = await Quote.findByIdAndUpdate(
             req.params.id,
-            req.body,
-            { new: true } // Return the updated version
-        );
+            { ...req.body, updatedAt: Date.now() },
+            { new: true, runValidators: true }
+        ).populate("createdBy", "name email");
 
         if (!updatedQuote) {
             return res.status(404).json({ message: "Quote not found" });
@@ -105,7 +111,10 @@ export const updateQuote = async (req, res) => {
 
         res.status(200).json(updatedQuote);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({
+            message: "Error updating quote",
+            error: error.message
+        });
     }
 };
 
@@ -114,20 +123,31 @@ export const updateQuote = async (req, res) => {
 ----------------------------- */
 export const deleteQuote = async (req, res) => {
     try {
-        if (!req.user.isAdmin) {
+        // Only admin can delete quotes
+        if (req.user.role !== 'admin') {
             return res.status(403).json({ message: "Access denied" });
         }
 
-        const deletedQuote = await Quote.findByIdAndDelete(req.params.id);
-        if (!deletedQuote)
+        // Check if quote exists first
+        const quote = await Quote.findById(req.params.id);
+        if (!quote) {
             return res.status(404).json({ message: "Quote not found" });
+        }
 
-        res.status(200).json({ message: "Quote deleted successfully" });
+        // Delete the quote
+        await Quote.findByIdAndDelete(req.params.id);
+
+        res.status(200).json({
+            message: "Quote deleted successfully",
+            deletedQuoteId: req.params.id
+        });
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({
+            message: "Error deleting quote",
+            error: error.message
+        });
     }
 };
-
 /* -----------------------------
    GET LOGGED-IN USER'S QUOTES
 ----------------------------- */

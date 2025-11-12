@@ -1,0 +1,23 @@
+meta {
+  name: New HTTP Request
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:5000/api/quotes/export/691451b9feaf4a9ac5b1afce
+  body: json
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjY1YmE4NTM1YTU0NDc1Y2FmYzU5ZCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc2Mjk1MzExMywiZXhwIjoxNzYzMDM5NTEzfQ.DfmA_Oqnlzku7zKH6uz2dkQvgEruCkhR6wdkrz3Je8I
+}
+
+body:json {
+  {
+    "email":"justinne@gmail.com",
+    "password":"nothing"
+  }
+}
