@@ -10,7 +10,7 @@ export const generateQuotePDF = async (req, res) => {
         }
 
         // Check permissions
-        if (quote.createdBy._id.toString() !== req.user.id && req.user.role !== 'admin') {
+        if (quote.createdBy._id.toString() !== req.user.id && req.user.role !== 'admin' && req.user.role !== 'customer') {
             return res.status(403).json({ message: "Access denied" });
         }
 
