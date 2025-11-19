@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/userModels.js";
+import User from "../models/user-model.js";
 
 // In authMiddleware.js, update the protect middleware
 export const protect = async (req, res, next) => {

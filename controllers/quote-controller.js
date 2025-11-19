@@ -1,5 +1,5 @@
 
-import Quote from "../models/Quotes.js";
+import Quote from "../models/quotes.js";
 
 
 /* -----------------------------

@@ -7,10 +7,10 @@ import {
    updateQuote,
    deleteQuote,
    getUserQuotes,
-} from "../controllers/quoteController.js";
+} from "../controllers/quote-controller.js";
 
-import { protect, adminOnly } from "../middleware/authMiddleware.js"; //  Auth middlewares
-import { generateQuotePDF } from "../controllers/pdfController.js"; //  For business-style export
+import { protect, adminOnly } from "../middleware/auth-middleware.js"; //  Auth middlewares
+import { generateQuotePDF } from "../controllers/pdf-controller.js"; //  For business-style export
 
 const router = express.Router();
 

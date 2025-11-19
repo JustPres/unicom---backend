@@ -1,5 +1,5 @@
 import PDFDocument from "pdfkit";
-import Quote from "../models/Quotes.js";
+import Quote from "../models/quotes.js";
 
 export const generateQuotePDF = async (req, res) => {
     try {
